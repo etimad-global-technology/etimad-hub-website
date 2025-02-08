@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
             width: 100%;
             background: white;
             padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
 
@@ -106,7 +107,7 @@
             max-width: 100%;
             height: auto;
             border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         /* Features Section */
@@ -175,7 +176,7 @@
             background: white;
             padding: 2rem;
             border-radius: 1rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         /* CTA Section */
@@ -226,11 +227,131 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* Mobile Navigation Styles */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .mobile-menu-button i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 4rem;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            /* Improved Product Grid */
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem 0.5rem;
+            }
+
+            .product-card {
+                padding: 1.5rem;
+            }
+
+            /* Better Typography for Mobile */
+            .hero h1 {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+                padding: 0 1rem;
+            }
+
+            /* Improved Mobile Spacing */
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .sections {
+                padding: 3rem 1rem;
+            }
+
+            /* Form Improvements */
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.875rem;
+            }
+
+            /* Better Touch Targets */
+            .nav-links a,
+            .cta-button,
+            .submit-button {
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Stats Section */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            /* Team Section */
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Additional Responsive Improvements */
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-content">
+            <button class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
             <a href="index.html" class="logo">EtimadHub</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -245,7 +366,8 @@
         <div class="product-hero-content">
             <div class="product-hero-text">
                 <h1>Mockgee</h1>
-                <p>Transform your API development workflow with the most comprehensive mocking solution trusted by industry leaders.</p>
+                <p>Transform your API development workflow with the most comprehensive mocking solution trusted by
+                    industry leaders.</p>
                 <a href="#contact" class="cta-button">Request Demo</a>
             </div>
             <div class="product-hero-image">
@@ -261,32 +383,38 @@
                 <div class="feature-card">
                     <i class="fas fa-sync"></i>
                     <h3>Dynamic Response Generation</h3>
-                    <p>Create realistic test scenarios with dynamic data generation capabilities. Support for templates, variables, and complex logic ensures your mocks behave like real APIs.</p>
+                    <p>Create realistic test scenarios with dynamic data generation capabilities. Support for templates,
+                        variables, and complex logic ensures your mocks behave like real APIs.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-bullseye"></i>
                     <h3>Precise Request Matching</h3>
-                    <p>Define exact matching conditions based on headers, query parameters, request body, and more. Supports regex and pattern matching for flexible mock definitions.</p>
+                    <p>Define exact matching conditions based on headers, query parameters, request body, and more.
+                        Supports regex and pattern matching for flexible mock definitions.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-plug"></i>
                     <h3>Easy Integration</h3>
-                    <p>Import API definitions from Swagger, WSDL, or Postman collections. Seamlessly integrate with your existing development workflow and CI/CD pipeline.</p>
+                    <p>Import API definitions from Swagger, WSDL, or Postman collections. Seamlessly integrate with your
+                        existing development workflow and CI/CD pipeline.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-tools"></i>
                     <h3>Developer-Friendly</h3>
-                    <p>Intuitive UI for quick mock creation and management. Comprehensive API support for automation and integration with your development tools.</p>
+                    <p>Intuitive UI for quick mock creation and management. Comprehensive API support for automation and
+                        integration with your development tools.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-globe"></i>
                     <h3>Cross-Origin Support</h3>
-                    <p>Built-in CORS support for web applications. Configure and manage CORS policies with ease for secure cross-origin requests.</p>
+                    <p>Built-in CORS support for web applications. Configure and manage CORS policies with ease for
+                        secure cross-origin requests.</p>
                 </div>
                 <div class="feature-card">
                     <i class="fas fa-clock"></i>
                     <h3>Response Timing Control</h3>
-                    <p>Simulate real-world conditions with configurable response delays and timeout scenarios. Perfect for testing error handling and timeout scenarios.</p>
+                    <p>Simulate real-world conditions with configurable response delays and timeout scenarios. Perfect
+                        for testing error handling and timeout scenarios.</p>
                 </div>
             </div>
         </div>
@@ -298,15 +426,18 @@
             <div class="use-case-grid">
                 <div class="use-case-card">
                     <h3>Development & Testing</h3>
-                    <p>Speed up development by mocking dependencies that aren't ready or are under development. Create consistent test environments for reliable testing.</p>
+                    <p>Speed up development by mocking dependencies that aren't ready or are under development. Create
+                        consistent test environments for reliable testing.</p>
                 </div>
                 <div class="use-case-card">
                     <h3>Integration Testing</h3>
-                    <p>Test your application's behavior with third-party services without actual API calls. Simulate various response scenarios including errors and edge cases.</p>
+                    <p>Test your application's behavior with third-party services without actual API calls. Simulate
+                        various response scenarios including errors and edge cases.</p>
                 </div>
                 <div class="use-case-card">
                     <h3>Demo & Prototype</h3>
-                    <p>Create working prototypes and demos without backend dependencies. Perfect for proof of concept and client presentations.</p>
+                    <p>Create working prototypes and demos without backend dependencies. Perfect for proof of concept
+                        and client presentations.</p>
                 </div>
             </div>
         </div>
@@ -319,6 +450,7 @@
             <a href="#contact" class="cta-button">Get Started Today</a>
         </div>
     </section>
+    
 
     <script>
         // Add smooth scrolling
@@ -332,7 +464,7 @@
         });
 
         // Navbar shadow on scroll
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 0) {
                 navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
@@ -340,6 +472,43 @@
                 navbar.style.boxShadow = 'none';
             }
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuButton.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.nav-content')) {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
     </script>
 </body>
+
 </html>
