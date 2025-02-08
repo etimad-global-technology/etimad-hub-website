@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,7 +33,7 @@
             width: 100%;
             background: white;
             padding: 1rem 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             z-index: 1000;
         }
 
@@ -205,11 +206,131 @@
                 font-size: 2rem;
             }
         }
+
+        /* Mobile Navigation Styles */
+        .mobile-menu-button {
+            display: none;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+            cursor: pointer;
+            color: var(--text-color);
+        }
+
+        .mobile-menu-button i {
+            font-size: 1.5rem;
+        }
+
+        /* Responsive Navigation */
+        @media (max-width: 768px) {
+            .mobile-menu-button {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                position: fixed;
+                top: 4rem;
+                left: 0;
+                right: 0;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            /* Improved Product Grid */
+            .product-grid {
+                grid-template-columns: 1fr;
+                padding: 1rem 0.5rem;
+            }
+
+            .product-card {
+                padding: 1.5rem;
+            }
+
+            /* Better Typography for Mobile */
+            .hero h1 {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .hero p {
+                font-size: 1.125rem;
+                padding: 0 1rem;
+            }
+
+            /* Improved Mobile Spacing */
+            .hero {
+                padding: 4rem 1rem;
+            }
+
+            .sections {
+                padding: 3rem 1rem;
+            }
+
+            /* Form Improvements */
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.875rem;
+            }
+
+            /* Better Touch Targets */
+            .nav-links a,
+            .cta-button,
+            .submit-button {
+                padding: 0.75rem 1rem;
+                min-height: 44px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            /* Stats Section */
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stat-card {
+                padding: 1rem;
+            }
+
+            /* Team Section */
+            .team-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+
+        /* Additional Responsive Improvements */
+        @media (max-width: 480px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
+
 <body>
     <nav class="navbar">
         <div class="nav-content">
+            <button class="mobile-menu-button">
+                <i class="fas fa-bars"></i>
+            </button>
             <a href="index.html" class="logo">EtimadHub</a>
             <div class="nav-links">
                 <a href="index.html">Home</a>
@@ -232,8 +353,8 @@
                     <i class="fas fa-phone"></i>
                     <div>
                         <h3>Phone</h3>
-                        <p>+1 (555) 123-4567</p>
-                        <p>Monday to Friday, 9am - 6pm EST</p>
+                        <p>+966 53890 3547</p>
+                        <p>Sunday to Thursday, 8am - 4pm EST</p>
                     </div>
                 </div>
                 <div class="contact-method">
@@ -293,35 +414,29 @@
             <div class="offices-grid">
                 <div class="office-card">
                     <i class="fas fa-building"></i>
-                    <h3>New York</h3>
-                    <p>123 Tech Avenue</p>
-                    <p>New York, NY 10001</p>
+                    <h3>Riyadh</h3>
+                    <p>123 Tech Park</p>
+                    <p>Riyadh, KSA 10001</p>
                 </div>
                 <div class="office-card">
                     <i class="fas fa-building"></i>
-                    <h3>London</h3>
+                    <h3>Kolkata</h3>
                     <p>456 Innovation Street</p>
-                    <p>London, UK EC2A 1NT</p>
-                </div>
-                <div class="office-card">
-                    <i class="fas fa-building"></i>
-                    <h3>Singapore</h3>
-                    <p>789 Digital Road</p>
-                    <p>Singapore 238801</p>
+                    <p>Kolkata, India</p>
                 </div>
             </div>
         </div>
     </section>
 
     <script>
-        document.getElementById('demo-form').addEventListener('submit', function(e) {
+        document.getElementById('demo-form').addEventListener('submit', function (e) {
             e.preventDefault();
             // Here you would typically handle the form submission
             alert('Thank you for your interest! Our team will contact you shortly.');
         });
 
         // Navbar shadow
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const navbar = document.querySelector('.navbar');
             if (window.scrollY > 0) {
                 navbar.style.boxShadow = '0 2px 4px rgba(0,0,0,0.1)';
@@ -329,6 +444,43 @@
                 navbar.style.boxShadow = 'none';
             }
         });
+        document.addEventListener('DOMContentLoaded', function () {
+            const mobileMenuButton = document.querySelector('.mobile-menu-button');
+            const navLinks = document.querySelector('.nav-links');
+
+            mobileMenuButton.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                const icon = this.querySelector('i');
+                if (navLinks.classList.contains('active')) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking outside
+            document.addEventListener('click', function (event) {
+                if (!event.target.closest('.nav-content')) {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+
+            // Close menu when clicking a link
+            navLinks.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    navLinks.classList.remove('active');
+                    const icon = mobileMenuButton.querySelector('i');
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                });
+            });
+        });
     </script>
 </body>
+
 </html>
